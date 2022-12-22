@@ -5,9 +5,9 @@ services:
   app:
     build: .
     environment:
-      - SECRET_KEY=ASD12323AS656489ASDFF
-      - REDIS_HOST=redisdb
-      - REDIS_PORT=6379
+      # - SECRET_KEY=ASD12323AS656489ASDFF
+      # - REDIS_HOST=redisdb
+      # - REDIS_PORT=6379
       - PORT=8081
     ports:
       - "127.0.0.1:8081:8081"
