@@ -1,16 +1,50 @@
 version: "3.9"
 
+version: "3.9"
 services:
-
-  app:
-    build: .
-    environment:
-      # - SECRET_KEY=ASD12323AS656489ASDFF
-      # - REDIS_HOST=redisdb
-      # - REDIS_PORT=6379
-      - PORT=8081
+  mongodb:
+    container_name: mongodb
     ports:
-      - "127.0.0.1:8081:8081"
+      - "4000:4000"
+    image: mongo:latest
+    environment:
+      - MONGODB_USER="user"
+      - MONGODB_PASS="pass"
+    volumes:
+      - "mongodb-data:/data/db"
+  # mongoclient:
+  #   container_name: mongoclient
+  #   ports:
+  #     - "4000:3000"
+  #   image: mongoclient/mongoclient:latest
 
-  redisdb:
-    image: redis
+volumes:
+  mongodb-data: {}
+
+# services:
+
+
+  # database:
+  #   image: 'mongo'
+  #   container name: 'my-mongo-container' # give your container a name
+  #     environment:
+  #     - MONGO_INITDB DATABASE=your-database-name # database name you want to make
+  #     - MONGO_INITDB ROOT USERNAME=my-container-root-username # set your container root username
+  #     - MONGO_INITDB ROOT PASSWORD=secret # set your container root password
+  #     volumes:
+  #     ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+  #     /mongo-volume:/data/db
+  #     ports:
+  #       -  "4000:4000"
+  # app:
+  #   build: .
+  #   environment:
+  #     # - SECRET_KEY=ASD12323AS656489ASDFF
+  #     # - REDIS_HOST=redisdb
+  #     # - REDIS_PORT=6379
+  #     - builder = "nixpacks"
+  #   ports:
+  #     - "127.0.0.1:8081:8081"
+
+
+
