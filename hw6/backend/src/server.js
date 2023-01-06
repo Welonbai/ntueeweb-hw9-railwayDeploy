@@ -5,6 +5,7 @@ import cors from 'cors';
 import db from './db';
 import routes from './routes';
 import ScoreCard from './models/ScoreCard'
+import path from "path";
 
 // dotenv.config();
 require('dotenv').config({path: '../.env'});
