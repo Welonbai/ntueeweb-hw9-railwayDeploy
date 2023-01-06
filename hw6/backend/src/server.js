@@ -22,11 +22,11 @@ if (process.env.NODE_ENV === "development") {
 	app.use(cors());
 }
 
-app.get("/api", (req, res) => {
-    // send the request back to the client
-    console.log("GET /api");
-    res.send({ message: "Hello from the server!" }).status(200);
-  });
+// app.get("/api", (req, res) => {
+//     // send the request back to the client
+//     console.log("GET /api");
+//     res.send({ message: "Hello from the server!" }).status(200);
+//   });
 
 if (process.env.NODE_ENV === "production") {
     const __dirname = path.resolve();
